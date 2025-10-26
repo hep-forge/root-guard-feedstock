@@ -1,0 +1,25 @@
+package:
+  name: root-guard
+  version: 1
+
+build:
+  number: 0
+  string: "1"
+  noarch: generic
+
+requirements:
+  run_constrained:
+    - root_base ==9999
+
+about:
+  home: https://root.cern/
+  license: LGPL-2.1-only
+  summary: "ROOT: analyzing petabytes of data, scientifically."
+  description: |
+      ROOT is a modular scientific software toolkit. It provides all the functionalities needed to deal with big data
+      processing, statistical analysis, visualisation and storage. It is mainly written in C++ but integrated with other
+      languages such as Python and R.
+
+extra:
+  recipe-maintainers:
+    - meiyasan
