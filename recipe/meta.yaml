@@ -1,15 +1,24 @@
+# root-guard keeps conda-forge's ROOT out of hep-forge environments on Linux,
+# where hep-forge builds ROOT itself (root_base ==9999 never exists). On macOS
+# hep-forge has no ROOT: its packages there run on conda-forge's, so the guard
+# must not block it. Two noarch builds, chosen by the virtual package of the
+# installing machine: target_os=linux keeps the guard, target_os=osx is empty.
 package:
   name: root-guard
-  version: 1
+  version: "1.1"
 
 build:
   number: 0
-  string: "1"
+  string: "{{ target_os }}"
   noarch: generic
 
 requirements:
+  run:
+    - __{{ target_os }}
   run_constrained:
+{% if target_os == "linux" %}
     - root_base ==9999
+{% endif %}
 
 about:
   home: https://root.cern/
