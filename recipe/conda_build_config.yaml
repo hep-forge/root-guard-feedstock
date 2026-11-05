@@ -9,7 +9,3 @@ c_stdlib_version:
 packages:
   - numpy
 
-# one noarch build per OS family (see meta.yaml)
-target_os:
-  - linux
-  - osx
